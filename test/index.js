@@ -24,7 +24,9 @@ describe("index.js", function () {
                 },
             };
 
-            function next(result) {
+            function next(err, result) {
+                expect(err).to.be.null;
+
                 expect(result).to.be.an("object");
                 expect(result).to.have.property("stream")
                     .that.has.property("pipe").that.is.a("function");
@@ -81,7 +83,9 @@ describe("index.js", function () {
                 },
             };
 
-            function next(result) {
+            function next(err, result) {
+                expect(err).to.be.null;
+
                 expect(result).to.be.an("object");
                 expect(result).to.have.property("stream")
                     .that.has.property("write").that.is.a("function");
@@ -102,7 +106,9 @@ describe("index.js", function () {
                 },
             };
 
-            function next(result) {
+            function next(err, result) {
+                expect(err).to.be.null;
+
                 expect(result).to.be.an("object");
                 expect(result).to.have.property("metadata")
                     .that.has.property("encryption").that.is.an("object")

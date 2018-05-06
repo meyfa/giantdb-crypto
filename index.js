@@ -34,7 +34,7 @@ Crypto.prototype.transformReadable = function (stream, meta, options, next) {
     const decipher = crypto.createDecipheriv("aes192", key, iv);
     stream.pipe(decipher);
 
-    next({
+    next(null, {
         stream: decipher,
     });
 };
@@ -62,7 +62,7 @@ Crypto.prototype.transformWritable = function (stream, meta, options, next) {
     const cipher = crypto.createCipheriv("aes192", key, iv);
     cipher.pipe(stream);
 
-    next({
+    next(null, {
         metadata: meta,
         stream: cipher,
     });
