@@ -1,0 +1,34 @@
+{
+  "name": "giantdb-crypto",
+  "version": "0.0.0",
+  "description": "GiantDB middleware for object encryption",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meyfa/giantdb-crypto.git"
+  },
+  "keywords": [
+    "giantdb",
+    "object",
+    "storage",
+    "store",
+    "encryption",
+    "crypto",
+    "aes",
+    "security",
+    "middleware"
+  ],
+  "author": "Fabian Meyer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/meyfa/giantdb-crypto/issues"
+  },
+  "homepage": "https://github.com/meyfa/giantdb-crypto",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.1.1"
+  }
+}
