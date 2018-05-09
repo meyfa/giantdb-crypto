@@ -1,6 +1,6 @@
 {
   "name": "giantdb-crypto",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "GiantDB middleware for object encryption",
   "main": "index.js",
   "scripts": {
