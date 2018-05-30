@@ -4,7 +4,8 @@
   "description": "GiantDB middleware for object encryption",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/mocha --recursive"
+    "test": "mocha --recursive",
+    "coverage": "nyc --reporter=lcov mocha --recursive"
   },
   "repository": {
     "type": "git",
@@ -30,5 +31,8 @@
   "dependencies": {
     "chai": "^4.1.2",
     "mocha": "^5.1.1"
+  },
+  "devDependencies": {
+    "nyc": "^11.8.0"
   }
 }
