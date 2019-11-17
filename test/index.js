@@ -9,14 +9,6 @@ const Crypto = require("../index.js");
 
 describe("index.js", function () {
 
-    describe("constructor", function () {
-
-        it("constructs even when called as a function", function () {
-            expect(Crypto()).to.be.instanceOf(Crypto);
-        });
-
-    });
-
     describe("#transformReadable()", function () {
 
         it("calls next() with a new stream", function (done) {

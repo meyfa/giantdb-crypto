@@ -9,7 +9,7 @@
 ## Install
 
 ```
-npm install --save giantdb-crypto
+npm i giantdb-crypto
 ```
 
 ## Setup
