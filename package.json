@@ -4,6 +4,8 @@
   "description": "GiantDB middleware for object encryption",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint --ignore-path .gitignore .",
+    "lint-fix": "eslint --fix --ignore-path .gitignore .",
     "test": "mocha --recursive",
     "coverage": "nyc --reporter=lcov mocha --recursive"
   },
