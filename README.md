@@ -5,7 +5,8 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/961375c3057ac63be2ad/maintainability)](https://codeclimate.com/github/meyfa/giantdb-crypto/maintainability)
 
 [GiantDB](https://github.com/meyfa/giantdb) middleware for object encryption,
-written in TypeScript.
+written in TypeScript. Requires GiantDB `>= 3.0.0` to be installed as a peer
+dependency.
 
 ## Install
 
@@ -19,7 +20,7 @@ Example:
 
 ```ts
 import { GiantDB } from 'giantdb'
-import { Crypto as GiantDBCrypto } from 'giantdb-crypto'
+import { GiantDBCrypto } from 'giantdb-crypto'
 
 const db = new GiantDB()
 

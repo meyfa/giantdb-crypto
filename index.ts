@@ -1,5 +1,6 @@
 import crypto, { CipherKey } from 'crypto'
 import { Readable, Writable } from 'stream'
+import { Middleware, MiddlewareNextFn } from 'giantdb'
 
 /**
  * Subset of options as required by this middleware.
@@ -65,7 +66,7 @@ function retrieveIV (metadata: unknown): Buffer | undefined {
 /**
  * The crypto middleware class. Instantiate this class and use it on a GiantDB store.
  */
-export class Crypto {
+export class GiantDBCrypto implements Middleware {
   /**
    * Transforms the given readable stream, putting a decryption layer in between.
    * next is called with the modified state.
@@ -75,7 +76,7 @@ export class Crypto {
    * @param options The user-provided options object.
    * @param next The continuation callback.
    */
-  transformReadable (stream: Readable, meta: object, options: object | undefined | null, next: Function): void {
+  transformReadable (stream: Readable, meta: object, options: object | undefined | null, next: MiddlewareNextFn<Readable>): void {
     // can only decrypt if options are specified correctly, and metadata is complete
     if (!isEncryptionOptions(options)) {
       next(new Error('missing or invalid encryption options, key not found during item read'))
@@ -107,7 +108,7 @@ export class Crypto {
    * @param options The user-provided options object.
    * @param next The continuation callback.
    */
-  transformWritable (stream: Writable, meta: object, options: object | undefined | null, next: Function): void {
+  transformWritable (stream: Writable, meta: object, options: object | undefined | null, next: MiddlewareNextFn<Writable>): void {
     if (!isEncryptionOptions(options)) {
       next(new Error('missing or invalid encryption options, key not found during item write'))
       return
