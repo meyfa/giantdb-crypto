@@ -1,9 +1,15 @@
 import { expect } from 'chai'
 import { PassThrough } from 'stream'
 
-import { Crypto } from '../index'
+import { GiantDBCrypto } from '../index'
+import { GiantDB } from 'giantdb'
 
 describe('index.ts', function () {
+  it('can be installed as middleware on GiantDB', function () {
+    const db = new GiantDB()
+    db.use(new GiantDBCrypto())
+  })
+
   describe('#transformReadable()', function () {
     it('calls next() with a new stream', function (done) {
       const stream = new PassThrough()
@@ -24,7 +30,7 @@ describe('index.ts', function () {
           .that.has.property('pipe').that.is.a('function')
         done()
       }
-      const obj = new Crypto()
+      const obj = new GiantDBCrypto()
       obj.transformReadable(stream, meta, options, next)
     })
 
@@ -40,7 +46,7 @@ describe('index.ts', function () {
         expect(err).to.be.instanceof(Error)
         done()
       }
-      const obj = new Crypto()
+      const obj = new GiantDBCrypto()
       obj.transformReadable(stream, meta, options, next)
     })
 
@@ -56,7 +62,7 @@ describe('index.ts', function () {
         expect(err).to.be.instanceof(Error)
         done()
       }
-      const obj = new Crypto()
+      const obj = new GiantDBCrypto()
       obj.transformReadable(stream, meta, options, next)
     })
   })
@@ -81,7 +87,7 @@ describe('index.ts', function () {
           .that.has.property('write').that.is.a('function')
         done()
       }
-      const obj = new Crypto()
+      const obj = new GiantDBCrypto()
       obj.transformWritable(stream, meta, options, next)
     })
 
@@ -101,7 +107,7 @@ describe('index.ts', function () {
           .and.has.property('iv').that.is.a('string')
         done()
       }
-      const obj = new Crypto()
+      const obj = new GiantDBCrypto()
       obj.transformWritable(stream, meta, options, next)
     })
 
@@ -117,7 +123,7 @@ describe('index.ts', function () {
         expect(err).to.be.instanceof(Error)
         done()
       }
-      const obj = new Crypto()
+      const obj = new GiantDBCrypto()
       obj.transformWritable(stream, meta, options, next)
     })
   })
