@@ -4,7 +4,8 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/961375c3057ac63be2ad/test_coverage)](https://codeclimate.com/github/meyfa/giantdb-crypto/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/961375c3057ac63be2ad/maintainability)](https://codeclimate.com/github/meyfa/giantdb-crypto/maintainability)
 
-[GiantDB](https://github.com/meyfa/giantdb) middleware for object encryption
+[GiantDB](https://github.com/meyfa/giantdb) middleware for object encryption,
+written in TypeScript.
 
 ## Install
 
@@ -16,14 +17,14 @@ npm i giantdb-crypto
 
 Example:
 
-```javascript
-const GiantDB = require("giantdb");
-const GiantDBCrypto = require("giantdb-crypto");
+```ts
+import { GiantDB } from 'giantdb'
+import { Crypto as GiantDBCrypto } from 'giantdb-crypto'
 
-const db = new GiantDB();
+const db = new GiantDB()
 
 // register the middleware
-db.use(new GiantDBCrypto());
+db.use(new GiantDBCrypto())
 ```
 
 That's all there is to it!
@@ -36,28 +37,28 @@ encrypted will cause errors when it is suddenly introduced.
 You will need to provide an **encryption key** with every action that reads or
 writes items. Examples:
 
-```javascript
+```ts
 const options = {
-    encryption: {
-        key: /* your encryption key (any 24-byte Buffer) */,
-    },
-};
+  encryption: {
+    key: /* your encryption key (any 24-byte Buffer) */
+  }
+}
 
 db.create(options).then((change) => {
+  // ... everything else is normal
+})
+
+db.get(/* item id */).then((item) => {
+  return item.getReadable(options).then((readable) => {
     // ... everything else is normal
-});
+  })
+})
 
 db.get(/* item id */).then((item) => {
-    return item.getReadable(options).then((readable) => {
-        // ... everything else is normal
-    });
-});
-
-db.get(/* item id */).then((item) => {
-    return item.getWritable(options).then((writable) => {
-        // ... everything else is normal
-    });
-});
+  return item.getWritable(options).then((writable) => {
+    // ... everything else is normal
+  })
+})
 ```
 
 ## Encryption Algorithm
