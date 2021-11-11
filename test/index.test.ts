@@ -1,13 +1,9 @@
-'use strict'
+import { expect } from 'chai'
+import { PassThrough } from 'stream'
 
-const chai = require('chai')
-const expect = chai.expect
+import { Crypto } from '../index'
 
-const { PassThrough } = require('stream')
-
-const Crypto = require('../index.js')
-
-describe('index.js', function () {
+describe('index.ts', function () {
   describe('#transformReadable()', function () {
     it('calls next() with a new stream', function (done) {
       const stream = new PassThrough()
@@ -21,8 +17,8 @@ describe('index.js', function () {
           key: Buffer.alloc(24)
         }
       }
-      const next = (err, result) => {
-        expect(err).to.be.null
+      const next = (err?: any, result?: any): void => {
+        expect(err).to.be.undefined
         expect(result).to.be.an('object')
         expect(result).to.have.property('stream')
           .that.has.property('pipe').that.is.a('function')
@@ -32,7 +28,7 @@ describe('index.js', function () {
       obj.transformReadable(stream, meta, options, next)
     })
 
-    it('fails for missing IV', function () {
+    it('fails for missing IV', function (done) {
       const stream = new PassThrough()
       const meta = {}
       const options = {
@@ -40,11 +36,15 @@ describe('index.js', function () {
           key: Buffer.alloc(24)
         }
       }
+      const next = (err?: any): void => {
+        expect(err).to.be.instanceof(Error)
+        done()
+      }
       const obj = new Crypto()
-      expect(() => obj.transformReadable(stream, meta, options, () => {})).to.throw
+      obj.transformReadable(stream, meta, options, next)
     })
 
-    it('fails for missing key', function () {
+    it('fails for missing key', function (done) {
       const stream = new PassThrough()
       const meta = {
         encryption: {
@@ -52,8 +52,12 @@ describe('index.js', function () {
         }
       }
       const options = {}
+      const next = (err?: any): void => {
+        expect(err).to.be.instanceof(Error)
+        done()
+      }
       const obj = new Crypto()
-      expect(() => obj.transformReadable(stream, meta, options, () => {})).to.throw
+      obj.transformReadable(stream, meta, options, next)
     })
   })
 
@@ -70,8 +74,8 @@ describe('index.js', function () {
           key: Buffer.alloc(24)
         }
       }
-      const next = (err, result) => {
-        expect(err).to.be.null
+      const next = (err?: any, result?: any): void => {
+        expect(err).to.be.undefined
         expect(result).to.be.an('object')
         expect(result).to.have.property('stream')
           .that.has.property('write').that.is.a('function')
@@ -89,8 +93,8 @@ describe('index.js', function () {
           key: Buffer.alloc(24)
         }
       }
-      const next = (err, result) => {
-        expect(err).to.be.null
+      const next = (err?: any, result?: any): void => {
+        expect(err).to.be.undefined
         expect(result).to.be.an('object')
         expect(result).to.have.property('metadata')
           .that.has.property('encryption').that.is.an('object')
@@ -101,7 +105,7 @@ describe('index.js', function () {
       obj.transformWritable(stream, meta, options, next)
     })
 
-    it('fails for missing key', function () {
+    it('fails for missing key', function (done) {
       const stream = new PassThrough()
       const meta = {
         encryption: {
@@ -109,8 +113,12 @@ describe('index.js', function () {
         }
       }
       const options = {}
+      const next = (err?: any): void => {
+        expect(err).to.be.instanceof(Error)
+        done()
+      }
       const obj = new Crypto()
-      expect(() => obj.transformWritable(stream, meta, options, () => {})).to.throw
+      obj.transformWritable(stream, meta, options, next)
     })
   })
 })
