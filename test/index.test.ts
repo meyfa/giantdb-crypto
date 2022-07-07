@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import { PassThrough } from 'stream'
 
-import { GiantDBCrypto } from '../index.js'
+import { GiantDBCrypto } from '../src/index.js'
 import { GiantDB } from 'giantdb'
 
 describe('index.ts', function () {
