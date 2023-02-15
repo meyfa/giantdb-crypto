@@ -1,6 +1,5 @@
-import { expect } from 'chai'
+import assert from 'assert'
 import { PassThrough } from 'stream'
-
 import { GiantDBCrypto } from '../src/index.js'
 import { GiantDB } from 'giantdb'
 
@@ -24,10 +23,9 @@ describe('index.ts', function () {
         }
       }
       const next = (err?: any, result?: any): void => {
-        expect(err).to.be.undefined
-        expect(result).to.be.an('object')
-        expect(result).to.have.property('stream')
-          .that.has.property('pipe').that.is.a('function')
+        assert.strictEqual(err, undefined)
+        assert.ok(typeof result === 'object')
+        assert.ok(typeof result?.stream?.pipe === 'function')
         done()
       }
       const obj = new GiantDBCrypto()
@@ -43,7 +41,7 @@ describe('index.ts', function () {
         }
       }
       const next = (err?: any): void => {
-        expect(err).to.be.instanceof(Error)
+        assert.ok(err instanceof Error)
         done()
       }
       const obj = new GiantDBCrypto()
@@ -59,7 +57,7 @@ describe('index.ts', function () {
       }
       const options = {}
       const next = (err?: any): void => {
-        expect(err).to.be.instanceof(Error)
+        assert.ok(err instanceof Error)
         done()
       }
       const obj = new GiantDBCrypto()
@@ -81,10 +79,9 @@ describe('index.ts', function () {
         }
       }
       const next = (err?: any, result?: any): void => {
-        expect(err).to.be.undefined
-        expect(result).to.be.an('object')
-        expect(result).to.have.property('stream')
-          .that.has.property('write').that.is.a('function')
+        assert.strictEqual(err, undefined)
+        assert.ok(typeof result === 'object')
+        assert.ok(typeof result?.stream?.write === 'function')
         done()
       }
       const obj = new GiantDBCrypto()
@@ -100,11 +97,9 @@ describe('index.ts', function () {
         }
       }
       const next = (err?: any, result?: any): void => {
-        expect(err).to.be.undefined
-        expect(result).to.be.an('object')
-        expect(result).to.have.property('metadata')
-          .that.has.property('encryption').that.is.an('object')
-          .and.has.property('iv').that.is.a('string')
+        assert.strictEqual(err, undefined)
+        assert.ok(typeof result === 'object')
+        assert.ok(typeof result?.metadata?.encryption?.iv === 'string')
         done()
       }
       const obj = new GiantDBCrypto()
@@ -120,7 +115,7 @@ describe('index.ts', function () {
       }
       const options = {}
       const next = (err?: any): void => {
-        expect(err).to.be.instanceof(Error)
+        assert.ok(err instanceof Error)
         done()
       }
       const obj = new GiantDBCrypto()
