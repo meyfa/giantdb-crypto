@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.1](https://github.com/meyfa/giantdb-crypto/compare/v4.0.0...v4.0.1) (2023-07-23)
+
+
+### Miscellaneous Chores
+
+* Publish with provenance ([#123](https://github.com/meyfa/giantdb-crypto/issues/123)) ([a3c9de7](https://github.com/meyfa/giantdb-crypto/commit/a3c9de78a7e75bab906553a2563844a722d8067e))
+
 ## [4.0.0](https://github.com/meyfa/giantdb-crypto/compare/v3.0.0...v4.0.0) (2023-06-25)
 
 
