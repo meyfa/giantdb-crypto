@@ -1,5 +1,5 @@
-import crypto, { CipherKey } from 'crypto'
-import { Readable, Writable } from 'stream'
+import crypto, { CipherKey } from 'node:crypto'
+import { Readable, Writable } from 'node:stream'
 import { Middleware, MiddlewareNextFn } from 'giantdb'
 
 /**
