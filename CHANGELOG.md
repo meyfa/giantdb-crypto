@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.0.2](https://github.com/meyfa/giantdb-crypto/compare/v4.0.1...v4.0.2) (2023-09-17)
+
+
+### Bug Fixes
+
+* Set package.json "type" explicitly to "commonjs" ([#138](https://github.com/meyfa/giantdb-crypto/issues/138)) ([817fc31](https://github.com/meyfa/giantdb-crypto/commit/817fc31790db41177b5c711a6aff506935c5aa3e))
+* Use 'node:' protocol in imports ([#139](https://github.com/meyfa/giantdb-crypto/issues/139)) ([7d8f426](https://github.com/meyfa/giantdb-crypto/commit/7d8f42687e50036ec2abfc13269888adfc5f8176))
+
 ## [4.0.1](https://github.com/meyfa/giantdb-crypto/compare/v4.0.0...v4.0.1) (2023-07-23)
 
 
