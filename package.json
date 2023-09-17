@@ -44,7 +44,7 @@
     "giantdb": "^4.0.0"
   },
   "devDependencies": {
-    "@meyfa/eslint-config": "4.0.0",
+    "@meyfa/eslint-config": "5.0.0",
     "@types/mocha": "10.0.1",
     "@types/node": "18.17.17",
     "c8": "8.0.0",
