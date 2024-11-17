@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
     "lib": ["ES2022"],
-    "target": "es2022",
+    "target": "ES2022",
     "module": "commonjs",
     "esModuleInterop": true,
     "strict": true,
     "declaration": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "allowJs": true
   },
   "include": [
     "src"
