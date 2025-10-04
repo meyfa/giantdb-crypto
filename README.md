@@ -1,8 +1,6 @@
 # giantdb-crypto
 
 [![CI](https://github.com/meyfa/giantdb-crypto/actions/workflows/main.yml/badge.svg)](https://github.com/meyfa/giantdb-crypto/actions/workflows/main.yml)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/961375c3057ac63be2ad/test_coverage)](https://codeclimate.com/github/meyfa/giantdb-crypto/test_coverage)
-[![Maintainability](https://api.codeclimate.com/v1/badges/961375c3057ac63be2ad/maintainability)](https://codeclimate.com/github/meyfa/giantdb-crypto/maintainability)
 
 [GiantDB](https://github.com/meyfa/giantdb) middleware for object encryption,
 written in TypeScript. Requires GiantDB `>= 3.0.0` to be installed as a peer
