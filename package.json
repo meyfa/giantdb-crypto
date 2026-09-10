@@ -46,11 +46,11 @@
   "devDependencies": {
     "@meyfa/eslint-config": "8.0.1",
     "@types/mocha": "10.0.10",
-    "@types/node": "24.12.4",
+    "@types/node": "24.13.4",
     "c8": "11.0.0",
-    "eslint": "9.39.4",
+    "eslint": "9.39.5",
     "giantdb": "4.0.3",
-    "mocha": "11.7.6",
+    "mocha": "11.8.0",
     "ts-node": "10.9.2",
     "typescript": "5.9.3"
   }
